@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>  
+ 
+ 
+ 
+<h2>Welcome! <br> <br> Calculate Your BMI by filling  the form</h2>
+<form method="POST" action="http://localhost/BMI Calculator/index.php" class="form">
+  <div class="input"></div>
+  Name: <input type="text" name="name">
+  <br><br>
+  E-mail: <input type="text" name="email">
+  <br><br>
+  Date Of Birth:
+  <input type="date" name="dob" value="dob">
+  <br><br>
+  Weight(in kgs): <input type="number" name="weight" step="0.01" >
+  <br><br>
+  Height(in meters): <input type="number" name="height" step="0.01">
+  <br><br>
+  </div>
+  <input type="submit" name="submit" value="Submit" class="Submit">  
+</form>
+</body>
+<script>
+var email = document.querySelector("#email").value;
+var height = document.querySelector("#height").value;
+var weight = document.querySelector("#weight").value;
+ 
+document.getElementsByClassName("form")[0].addEventListener("submit", (e) => {
+  e.preventDefault();
+  var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (regex.test(String(email).toLowerCase()) == false) {
+    alert("Enter a valid email address");
+    return;
+  }
+  if(typeof(weight) !== "number"){
+      alert("Enter correct value for weight");
+      return;
+  }
+  if(typeof(height) !== "number"){
+    alert("Enter correct value for height");
+    return;
+}
+});
+</script>
+</html>
